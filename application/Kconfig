@@ -1,0 +1,9 @@
+#
+# Copyright (c) 2022 Nordic Semiconductor
+#
+# SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
+# mainmenu "AWS IoT Core MQTT sample application"
+
+source "samples/subsys/usb/common/Kconfig.sample_usbd"
+source "Kconfig.zephyr"
+
