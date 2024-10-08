@@ -4,9 +4,12 @@
 
 As long as you're using an Ubuntu machine, setup is rather straightforward. You just need make and docker setup and then to run make. The commands for this can be found below
 
-`sudo apt install build-essential docker.io`
-`sudo chown -aG docker $USER`
-`sudo reboot`
+```
+sudo apt install build-essential docker.io
+sudo chown -aG docker $USER
+sudo reboot
+```
+
 
 `make`
 
@@ -22,6 +25,7 @@ We've had a few folks still leverage windows, but they needed to use WSL and to 
 
 After flashing the code onto the mimxrt1060evkb with the telit LE910C4-WWXD modem wired up through the arduino header, we're able to get ping information, but that's it. We want DNS and TCP to work so that way we can move forward with getting AWS connected for FOTA.
 
+```
 uart:~$ net ping 8.8.8.8
 PING 8.8.8.8
 28 bytes from 8.8.8.8 to 48.48.77.115: icmp_seq=1 ttl=109 time=197 ms
@@ -34,8 +38,10 @@ Query for 'google.com' sent.
 dns: Timeout while resolving name.
 [00:02:25.482,000] <dbg> net_dns_resolve: query_timeout: (sysworkq): Query timeout DNS req 62282 type 1 hash 59079
 [00:02:25.482,000] <dbg> net_dns_resolve: dns_resolve_cancel_with_hash: (sysworkq): Cancelling DNS req 62282 (name google.com type 1 hash 59079)
+```
 
 # Log outputs
+```
 [00:00:00.010,000] <dbg> net_dns_resolve: dns_resolve_init_locked: (main): [0] 8.8.8.8
 *** Booting Zephyr OS build v3.7.0 ***
 [00:00:00.011,000] <inf> USB: Starting Initialization
@@ -202,4 +208,4 @@ dns: Timeout while resolving name.
 [00:00:37.472,000] <dbg> modem_chat: modem_chat_on_unknown_command_received: OK
 [00:00:37.473,000] <dbg> modem_cellular: modem_cellular_log_event: event registered
 [00:00:37.940,000] <dbg> modem_chat: modem_chat_script_stop: telit_me910g1_periodic_chat_script: complete
-
+```
