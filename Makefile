@@ -44,3 +44,5 @@ compile_app:
 	
 flash: build 
 	$(RUN_DOCKER_CMD) west flash
+erase_all:
+	$(RUN_DOCKER_CMD) /opt/SEGGER/JLink_V798/JLinkExe -nogui 1 -if swd -speed auto -device 'MIMXRT1062xxx6A?BankAddr=0x60000000&Loader=QSPI' -CommanderScript /app/application/erase_all.jlink -nogui 1

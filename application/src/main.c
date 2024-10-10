@@ -4,6 +4,7 @@
 
 #include "usb/usb.h"
 #include "network/network.h"
+#include "network/dhcp.h"
 
 LOG_MODULE_REGISTER(MAIN, 4);
 
@@ -14,6 +15,7 @@ int main(void) {
     LOG_DBG("Starting system initialization...");
 
     network_init();
+    //app_dhcpv4_startup();
     while ( 1 ) {
 	k_msleep(2000);
     }

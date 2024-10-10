@@ -9,7 +9,7 @@
 
 #include <zephyr/logging/log.h>
 
-LOG_MODULE_DECLARE(aws, LOG_LEVEL_DBG);
+LOG_MODULE_REGISTER(aws, 4);
 
 #include <zephyr/kernel.h>
 
@@ -17,6 +17,8 @@ LOG_MODULE_DECLARE(aws, LOG_LEVEL_DBG);
 #include <zephyr/net/net_core.h>
 #include <zephyr/net/net_context.h>
 #include <zephyr/net/net_mgmt.h>
+
+#include "dhcp.h"
 
 static struct net_mgmt_event_callback mgmt_cb;
 
