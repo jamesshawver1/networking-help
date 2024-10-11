@@ -1,0 +1,10 @@
+ExitOnError 1
+r
+LE
+loadfile "./build/zephyr/zephyr.bin" 0x60000000
+r
+g
+writeDP 1 0
+readDP 1
+q
+

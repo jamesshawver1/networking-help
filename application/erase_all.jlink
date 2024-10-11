@@ -1,0 +1,4 @@
+connect
+exec EnableEraseAllFlashBanks
+erase
+q

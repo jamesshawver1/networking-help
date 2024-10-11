@@ -78,7 +78,7 @@ int network_init(void) {
             } else {
                 // Apply the same IP address
                 LOG_INF("Reconfiguring network with new settings...");
-                ret = (int)net_if_ipv4_addr_add(iface, current_ip, NET_ADDR_MANUAL, 0);
+                //ret = (int)net_if_ipv4_addr_add(iface, current_ip, NET_ADDR_MANUAL, 0);
                 if (ret < 0) {
                     LOG_ERR("Failed to set manual IP address: %d", ret);
                 } else {
@@ -91,14 +91,15 @@ int network_init(void) {
             struct in_addr new_gateway = *current_ip;  // Use the current IP as the gateway for cellular connections
             struct in_addr new_netmask = { { { 255, 255, 255, 252 } } }; // Typical netmask for cellular PPP connections
 
-            net_if_ipv4_set_gw(iface, &new_gateway);
+            //net_if_ipv4_set_gw(iface, &new_gateway);
             LOG_INF("Gateway updated to: %s", net_addr_ntop(AF_INET, &new_gateway, (char[NET_IPV4_ADDR_LEN]){0}, NET_IPV4_ADDR_LEN));
 
             // Set the netmask using net_if_ipv4_set_netmask
-            net_if_ipv4_set_netmask(iface, &new_netmask);
+            //net_if_ipv4_set_netmask(iface, &new_netmask);
             LOG_INF("Netmask set to: %s", net_addr_ntop(AF_INET, &new_netmask, (char[NET_IPV4_ADDR_LEN]){0}, NET_IPV4_ADDR_LEN));
 
             // Set default route (create a route to the gateway)
+	    /*
             LOG_INF("Adding default route to the gateway");
             struct net_if_router *router = net_if_ipv4_router_add(iface, &new_gateway, true,  10000 );
             if (!router) {
@@ -106,6 +107,7 @@ int network_init(void) {
             } else {
                 LOG_INF("Default route added successfully");
             }
+	    */
 
         } else {
             LOG_ERR("Failed to retrieve a valid IP address from the modem driver.");
